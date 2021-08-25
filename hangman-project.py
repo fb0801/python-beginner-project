@@ -16,8 +16,25 @@ def hangman():
         used_letters= set() #what user has guessed
 
         #get user input
-        user_letter = input('Guess a letter: ').upper()
+        while len(word_letters) > 0:
+            #letters used
+            #' '.join(['a', 'b', 'cd']) --> 'a b cd'
+            print(' you have used these letters: ', ' '.join(used_letters))
 
+            
+            #current word is
+            word_list = [letter if letter in used_letters else '-' for letter in word]
+
+
+
+            
+        user_letter = input('Guess a letter: ').upper()
+        if  user_letter in alphabet - used_letters:
+            used_letters.add(user_letter)
+            if user_letter in word_letters:
+                word_letters.remove(user_letter)
+            elif user_letter in used letters:
+                print("Already used that word")
 
 user_input =input("Type something: ")
 print(user_input)
