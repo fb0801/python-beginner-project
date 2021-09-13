@@ -34,5 +34,13 @@ class HumanPlayer(Player):
             square = input(self.letter + '\'s turn. Input move(0-9):')
             ''' check correct value and if the spot uses wants is taken or
             avaliable
-
             '''
+            try:
+                val = int(square)
+                if val not in game.avaliable_moves():
+                    raise ValueError
+                valid_square = True
+            except ValueError:
+                print('Invalid square. try again.')
+
+        return val
