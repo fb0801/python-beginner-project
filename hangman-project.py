@@ -33,6 +33,11 @@ def hangman():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
+
+            else:
+                lives = lives - 1 # remove live from user
+
+                
         elif user_letter in used letters:
             print("Already used that word")
 
