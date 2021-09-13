@@ -15,6 +15,7 @@ def hangman():
     alphabet = set(string.ascii_uppercase)
     used_letters= set() #what user has guessed
 
+    lives = 6
     #get user input
     while len(word_letters) > 0:
         #letters used
@@ -32,8 +33,11 @@ def hangman():
             used_letters.add(user_letter)
             if user_letter in word_letters:
                 word_letters.remove(user_letter)
-            elif user_letter in used letters:
-                print("Already used that word")
+        elif user_letter in used letters:
+            print("Already used that word")
+
+        else:
+            print('Invalid character, please try again')
 
 user_input =input("Type something: ")
 print(user_input)
