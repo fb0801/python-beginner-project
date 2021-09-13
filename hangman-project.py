@@ -17,10 +17,10 @@ def hangman():
 
     lives = 6
     #get user input
-    while len(word_letters) > 0:
+    while len(word_letters) > 0 and lives > 0:
         #letters used
         #' '.join(['a', 'b', 'cd']) --> 'a b cd'
-        print(' you have used these letters: ', ' '.join(used_letters))
+        print('You have',lives'left human and you have used these letters: ', ' '.join(used_letters))
 
             
         #current word is
@@ -36,6 +36,7 @@ def hangman():
 
             else:
                 lives = lives - 1 # remove live from user
+                print('Letter is not in the word')
 
                 
         elif user_letter in used letters:
@@ -43,6 +44,10 @@ def hangman():
 
         else:
             print('Invalid character, please try again')
+    if lives == 0:
+        print('you died, sorry. The word was', word)
+    else:
+        print('you guessed the word', word, '!!')
 
 user_input =input("Type something: ")
 print(user_input)
