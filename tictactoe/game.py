@@ -20,7 +20,7 @@ class TicTacToe:
                 print('|' + '|'.join(row) + ' |')
 
         def avaliable_moves(self):
-            return = [i for i, spot in enumerate(self.board) if spot == ' ']
+            return [i for i, spot in enumerate(self.board) if spot == ' ']
 
             
 
@@ -94,11 +94,12 @@ class TicTacToe:
 
                 #switch to the other letters turn
                     letter = 'O' if letter == 'X' else 'X'
-                    #if letter =='X':
-                    #    letter = 'O'
 
-            if print_game:
-                print('Its a tie')
+            #tiny break
+            time.sleep(0.8)
+
+        if print_game:
+            print('Its a tie')
                 
 
 if __name__ =='__main__':
