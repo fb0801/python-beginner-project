@@ -1,3 +1,6 @@
+from player import HumanPlayer, RandomComputerPlayer
+
+
 class TicTacToe:
     def __init__(self):
         self.board = ['' for _ in range(9)] 
@@ -100,3 +103,6 @@ class TicTacToe:
 
 if __name__ =='__main__':
     x_player = HumanPlayer('X')
+    o_player = RandomComputerPlayer('o')
+    t = TicTacToe()
+    play(t, x_player, o_player, print_game=True)
