@@ -26,9 +26,13 @@ class TicTacToe:
 
         def num_empty_sqaures(self):
             return self.board.count(' ')
+
+        def make_move(self, square, letter):
+            #if the move is valid then it is performed
+            if self.board[square] == ''
             
 
-    def play(game, x_player, o_player, print_game=True):
+    def play(game, x_player, o_player, print_game = True):
         if print_game:
             game.print_board_nums()
 
@@ -36,3 +40,11 @@ class TicTacToe:
         # iterate while have empty spaces
 
         while game.empty_squares():
+            #get move from the player
+            if letter == 'o':
+                square = o_player.get_move(game)
+            else:
+                square = x_player.get_move(game)
+
+            #function to make the move
+                
