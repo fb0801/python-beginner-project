@@ -46,7 +46,7 @@ class HumanPlayer(Player):
         return val
 
 
-def GeniusComputerPlayer(Player):
+class GeniusComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
@@ -55,8 +55,8 @@ def GeniusComputerPlayer(Player):
              square = random.choice(game.avaliable_moves()) #random choose one move
          else:
              #get square based off the miximax algor
-             square = self.minimax(game, self.letter)
-        return square
+             square = self.minimax(game, self.letter)['position']
+         return square
 
     def minimax(self, state, player):
         max_player = self.letter #yourself
@@ -65,7 +65,7 @@ def GeniusComputerPlayer(Player):
         #check if previous move is winner
         if state.current_winner == other_player:
             return {'position':None,
-                    'score': 1 * (state.num_empty_square()+ 1) if other_player == max_player else -1 * (
+                    'score': 1 * (state.num_empty_squares()+ 1) if other_player == max_player else -1 * (
                         state.num_empty_squares() + 1)
                     }
         
@@ -86,7 +86,13 @@ def GeniusComputerPlayer(Player):
             #3 undo the move
             state.board = [possible_move] = ' '
             state.current_winner = None
-            sim_score['position']
+            sim_score['position'] = possible_move
             
             #4 update dict
-            
+            if player == max_player:
+                if sim_score['score'] > best['score']:
+                    best = sim_score # replace best
+            else:
+                if sim_score['score'] < best['score']:
+                    best = sim_score #replace best
+        return best
