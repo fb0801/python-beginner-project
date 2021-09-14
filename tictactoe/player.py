@@ -69,3 +69,24 @@ def GeniusComputerPlayer(Player):
                         state.num_empty_squares() + 1)
                     }
         
+        elif not state.empty_squares(): # no empty space
+            return {'position': None, 'score':0}
+
+        if player ==max_player:
+            best = {'position': None, 'score': -math.inf} #each score to be larger
+        else:
+            best = {'position':None, 'score': -math.inf}
+
+        for possible_move in state.avaliable_moves():
+            #1 try the spot
+            state.make_moves(possible_move, player)
+            #2 use minimax to simulate game
+            sim_score = self.minimax(state, other_player)
+
+            #3 undo the move
+            state.board = [possible_move] = ' '
+            state.current_winner = None
+            sim_score['position']
+            
+            #4 update dict
+            
