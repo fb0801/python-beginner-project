@@ -46,4 +46,4 @@ def solve_sudoku(puzzle):
                 return True
 
         puzzle[row][col] = -1 #rest the game
-        
+    return False    
