@@ -1,4 +1,6 @@
 import qrcode
+import tkinter
+
 
 
 def generate_qrcode(text):
