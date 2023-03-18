@@ -13,8 +13,11 @@ def generate_qrcode(text):
     qr.add_data(text)
     qr.make(fit = True)
     img = qr.make_image(fill_color="black", black_color="white")
-    img.save("qrimg.png")
+    #img.save("qrimg.png")
 
+    name = input("Enter name of file: ")
+    
+    qcode = img.save(f'{name}.png')
 
 url =input("Enter your link: ")
 generate_qrcode(url)
